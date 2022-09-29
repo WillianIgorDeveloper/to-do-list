@@ -34,9 +34,9 @@ const Main = {
                 id: 'defaultTask',
                 content: `
                     <li id="defaultTask" class="task">
-                        <div  class="check-task">
+                        <div  class="check-done">
                             <div>
-                                <i class="ph-circle" title="Marcar como concluída"></i>
+                                <i class="ph-circle check-task" title="Marcar como concluída"></i>
                             </div>
                             <p>Descrição da tarefa</p>
                         </div>
@@ -69,7 +69,7 @@ const Main = {
         const $checkTask = document.querySelectorAll('.check-task')
         $checkTask.forEach(task => {
             task.onclick = (e) => {
-                this.doneTask(e, task)
+                this.doneTask(e)
             }
         })
 
@@ -95,9 +95,9 @@ const Main = {
                     id: `${taskSlug}${dateSlug}`,
                     content: `
                         <li id="${taskSlug}${dateSlug}" class="task">
-                            <div class="check-task">
+                            <div class="check-done">
                                 <div>
-                                    <i class="ph-circle" title="Marcar como concluída"></i>
+                                    <i class="ph-circle check-task" title="Marcar como concluída"></i>
                                 </div>
                                 <p>${$task.value}</p>
                             </div>
@@ -116,10 +116,6 @@ const Main = {
 
     
     removeTask: function (e) {
-
-        console.log(e.target.parentElement.id)
-
-
         this.taskListDefault.map((i, index) => {
             if(i.id === e.target.parentElement.id) {
                 this.taskListDefault.splice(index, 1)
@@ -131,8 +127,8 @@ const Main = {
     },
 
 
-    doneTask: function (e, task) {
-        task.classList.toggle('task-done')
+    doneTask: function (e) {
+        e.target.parentElement.parentElement.classList.toggle('task-done')
 
         this.taskListDefault.map((i) => {
             if(i.id === e.target.parentElement.parentElement.parentElement.id) {
@@ -150,7 +146,6 @@ const Main = {
         this.salveTaskList()
     },
 }
-
 
 
 // DOM Loaded
