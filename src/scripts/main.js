@@ -2,9 +2,13 @@
 const Main = {
     start: function () {
         this.casheSelectors()
-        this.createDefaltTasks()
+        this.taskListDefault = this.getLocalStorage()
+        if (!this.taskListDefault) {
+            this.taskListDefault = this.createDefaltTasks()
+        }
         this.showTasks()
         this.addEvents()
+        this.salveTaskList()
     },
 
 
@@ -14,9 +18,18 @@ const Main = {
         this.$deleteAll = document.querySelector('#deleteAll')
     },
     
+    getLocalStorage: function () {
+        const taskListSaved = localStorage.getItem('tasksList')
+        return JSON.parse(taskListSaved)
+    },
+
+    salveTaskList: function () {
+        const taskListJson = JSON.stringify(this.taskListDefault)
+        localStorage.setItem('tasksList', taskListJson)
+    },
 
     createDefaltTasks: function () {
-        this.taskListDefault = [
+        return [
             {
                 id: 'defaultTask',
                 content: `
@@ -95,6 +108,8 @@ const Main = {
                 $task.value = ''
                 this.showTasks()
                 this.addEvents()
+                this.salveTaskList()
+
             }
         }
     },
@@ -112,19 +127,19 @@ const Main = {
         })
         this.showTasks()
         this.addEvents()
+        this.salveTaskList()
     },
 
 
     doneTask: function (e, task) {
         task.classList.toggle('task-done')
 
-        console.log(this)
-
         this.taskListDefault.map((i) => {
             if(i.id === e.target.parentElement.parentElement.parentElement.id) {
                 i.content = e.target.parentElement.parentElement.parentElement.outerHTML
             }
         })
+        this.salveTaskList()
     },
 
 
@@ -132,6 +147,7 @@ const Main = {
         this.taskListDefault = []
         this.showTasks()
         this.addEvents()
+        this.salveTaskList()
     },
 }
 
