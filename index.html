@@ -24,16 +24,12 @@
   </head>
   <body>
     <section class="container">
-      <button class="new-task"><i class="ph-plus-circle"></i>Criar nova lista</button>
-      <div class="grid">
         <div class="tasks">
-          <header class="tasks-header">Descrição da lista<i title="Deletar tarefa" class="ph-x-circle"></i></header>
-          <div id="tasksContent" class="tasks-content">
-            <div class="task"><div><i title="Marcar como concluída" class="ph-circle"></i><p>Descrição da tarefa</p></div><i id="tasksRemove" onclick="Main.myEvents.removeTask('slug')" title="Excluir" class="ph-trash"></i></div>
-          </div>
+          <header class="tasks-header">My To-Do List<i id="deleteAll" title="Deletar todas as tarefas" class="ph-x-circle"></i></header>
+          <ul id="tasksContent" class="tasks-content">
+          </ul>
           <input id="tasksAdd" class="tasks-add" type="text" name="" id="" placeholder="Nova tarefa...">
         </div>
-      </div>
     </section>
   </body>
 </html>

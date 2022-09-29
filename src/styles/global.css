@@ -1,23 +1,3 @@
-/*==================== 
-    Stylization type: Mobile Frist
-====================*/
-
-/*========== REM measure ==========*/
-/* For screens bigger than 1080px: 16px(defalt) */
-/* For screens smaller than 1080px*/
-@media (max-width: 1080px) {
-    html {
-        font-size: 93.75%; /* 15px */
-    }
-}
-/* For screens smaller than 720px*/
-@media (max-width: 720px) {
-    html {
-        font-size: 87.5%; /* 14px */
-    }
-}
-
-
 /*====================
     Variables 
 ====================*/
@@ -28,14 +8,9 @@
     --transparent: #eeeeee50;
     --red: #fca5a5;
 
-    --green-45: hsl(142, 71%, 45%);
-    --green-50: hsl(142, 71%, 50%);
-
     --blue-25: hsl(214, 82%, 25%);
     --blue-35: hsl(214, 82%, 35%);
     --blue-50: hsl(214, 82%, 50%);
-    --blue-60: hsl(214, 82%, 60%);
-    --blue-65: hsl(214, 82%, 65%);
 }
 
 
@@ -56,10 +31,6 @@ body {
     background-color: var(--black);
     color: var(--white);
 }
-img {
-    width: 100%;
-    height: auto;
-}
 
 
 
@@ -68,34 +39,14 @@ img {
 ====================*/
 .container {
     padding: 5rem;
-}
-
-.new-task {
-    border: unset;
-    background-color: var(--green-45);
-    padding: .75rem;
-    border-radius: 8px;
-    color: var(--white);
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: .5rem;
-    font-weight: 500;
-}
-.new-task i {
-    font-size: 1.5rem;
-}
-.new-task:hover {
-    cursor: pointer;
-    background-color: var(--green-50);
-}
-
-.grid {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: auto;
 }
 
 .tasks {
+    max-width: 800px;
+    width: 100%;
     margin-bottom: 2rem;
     background-color: var(--blue-25);
     border-radius: 4px;
@@ -121,6 +72,7 @@ img {
     transform: scale(1.5,1.5);
     transition: transform .3s;
 }
+
 .tasks-content {
     padding: .75rem;
 }
@@ -151,6 +103,17 @@ img {
 .tasks-content .task > i {
     color: var(--red);
 }
+.task-done p {
+    text-decoration: line-through;
+}
+.tasks-content .task .check-task p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tasks-content .task .check-task {
+    width: 90%;
+}
 
 .tasks .tasks-add {
     width: 100%;
@@ -165,9 +128,7 @@ img {
     color: var(--transparent);
 }
 
-.task-done div p {
-    text-decoration: line-through;
-}
+
 .task-done {
     color: var(--transparent);
 }
