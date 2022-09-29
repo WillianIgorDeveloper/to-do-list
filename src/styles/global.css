@@ -1,0 +1,173 @@
+/*==================== 
+    Stylization type: Mobile Frist
+====================*/
+
+/*========== REM measure ==========*/
+/* For screens bigger than 1080px: 16px(defalt) */
+/* For screens smaller than 1080px*/
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; /* 15px */
+    }
+}
+/* For screens smaller than 720px*/
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; /* 14px */
+    }
+}
+
+
+/*====================
+    Variables 
+====================*/
+:root {
+    /*===== Colors =====*/
+    --black: #191919;
+    --white: #eeeeee;
+    --transparent: #eeeeee50;
+    --red: #fca5a5;
+
+    --green-45: hsl(142, 71%, 45%);
+    --green-50: hsl(142, 71%, 50%);
+
+    --blue-25: hsl(214, 82%, 25%);
+    --blue-35: hsl(214, 82%, 35%);
+    --blue-50: hsl(214, 82%, 50%);
+    --blue-60: hsl(214, 82%, 60%);
+    --blue-65: hsl(214, 82%, 65%);
+}
+
+
+
+/*==================== 
+    Global 
+====================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/*==================== 
+    Main 
+====================*/
+.container {
+    padding: 5rem;
+}
+
+.new-task {
+    border: unset;
+    background-color: var(--green-45);
+    padding: .75rem;
+    border-radius: 8px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+}
+.new-task i {
+    font-size: 1.5rem;
+}
+.new-task:hover {
+    cursor: pointer;
+    background-color: var(--green-50);
+}
+
+.grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.tasks {
+    margin-bottom: 2rem;
+    background-color: var(--blue-25);
+    border-radius: 4px;
+}
+
+.tasks .tasks-header {
+    background-color: var(--blue-50);
+    padding: .5rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+.tasks .tasks-header i {
+    font-size: 1.5rem;
+    transition: transform .3s;
+}
+.tasks .tasks-header i:hover {
+    cursor: pointer;
+    transform: scale(1.5,1.5);
+    transition: transform .3s;
+}
+.tasks-content {
+    padding: .75rem;
+}
+.tasks-content .task {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: .75rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--transparent);
+}
+.tasks-content .task:last-child {
+    border-bottom: unset;
+}
+.tasks-content .task div {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-weight: 300;
+}
+.tasks-content .task div i {
+    font-size: 1.25rem;
+}
+.tasks-content .task i:hover {
+    cursor: pointer;
+}
+.tasks-content .task > i {
+    color: var(--red);
+}
+
+.tasks .tasks-add {
+    width: 100%;
+    border: unset;
+    padding: .5rem;
+    border-radius: 4px;
+    background-color: var(--blue-35);
+    color: var(--white);
+    font-size: 1rem;
+}
+.tasks .tasks-add::placeholder {
+    color: var(--transparent);
+}
+
+.task-done div p {
+    text-decoration: line-through;
+}
+.task-done {
+    color: var(--transparent);
+}

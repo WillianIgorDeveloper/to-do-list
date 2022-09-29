@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--========== Google Fonts Preconnect ==========-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--========== Meta ==========-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Yellow Moon">
+    <meta name="description" content="Um simples aplicativo To-Do, feito apenas com JavaScript 'Vanilla'">
+    <!--========== Stylesheet ==========-->
+    <link rel="stylesheet" href="./src/styles/global.css" />
+    <!--========== Scripts ==========-->
+    <script src="./src/scripts/main.js"></script>
+    <!--========== Guide ==========-->
+    <link rel="shortcut icon" href="check-square-offset-fill.svg" type="image/x-icon">
+    <title>To-Do List | Yellow Moon</title>
+    <!--========== Google Fonts ==========-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!--========== Phosphor Icons ==========-->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+  </head>
+  <body>
+    <section class="container">
+      <button class="new-task"><i class="ph-plus-circle"></i>Criar nova lista</button>
+      <div class="grid">
+        <div class="tasks">
+          <header class="tasks-header">Descrição da lista<i title="Deletar tarefa" class="ph-x-circle"></i></header>
+          <div id="tasksContent" class="tasks-content">
+            <div class="task"><div><i title="Marcar como concluída" class="ph-circle"></i><p>Descrição da tarefa</p></div><i id="tasksRemove" onclick="Main.myEvents.removeTask('slug')" title="Excluir" class="ph-trash"></i></div>
+          </div>
+          <input id="tasksAdd" class="tasks-add" type="text" name="" id="" placeholder="Nova tarefa...">
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
